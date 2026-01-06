@@ -1,0 +1,14 @@
+// Full Subtractor in Verilog
+module full_subtractor (
+    input  wire a,       // Minuend
+    input  wire b,       // Subtrahend
+    input  wire bin,     // Borrow input
+    output wire diff,    // Difference output
+    output wire bout     // Borrow output
+);
+
+    // Logic for difference and borrow
+    assign diff = a ^ b ^ bin;                        // XOR for difference
+    assign bout = (~a & b) | (bin & ~a) | (bin & b);  // Borrow logic
+
+endmodule
